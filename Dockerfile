@@ -1,5 +1,6 @@
 FROM richarvey/nginx-php-fpm:3.1.2
 RUN apk add -U --no-cache nghttp2-dev nodejs npm unzip tzdata
+RUN docker-php-ext-install bcmath
 COPY . /var/www/html
 
 ENV SKIP_COMPOSER 0
