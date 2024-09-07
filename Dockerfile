@@ -21,8 +21,10 @@ ENV NODEJS_ALLOW_SUPERUSER 1
 ENV NPM_ALLOW_SUPERUSER 1
 ENV YARN_ALLOW_SUPERUSER 1
 ENV NPX_ALLOW_SUPERUSER 1
-RUN chmod 777 ./*
-RUN npm install && composer install
+RUN echo 'pm.max_children = 15' >> /usr/local/etc/php-fpm.d/zz-docker.conf && \
+echo 'pm.max_requests = 500' >> /usr/local/etc/php-fpm.d/zz-docker.conf
+RUN composer install && chmod -R 777 . && \
+npm install
 #RUN php artisan db:wipe --drop-types --force 
 #RUN php artisan migrate --force && php artisan db:seed --force
 
