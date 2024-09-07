@@ -27,6 +27,6 @@ RUN php artisan db:wipe --drop-types --force
 RUN php artisan migrate:install
 #RUN export APP_KEY=$( php artisan:key generate --show )
 #RUN php artisan migrate:fresh --force
-RUN php artisan db:seed --force
+RUN php artisan migrate:fresh --seed
 RUN php artisan filament:assets && npm run build
 EXPOSE 81
