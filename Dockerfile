@@ -23,11 +23,10 @@ ENV YARN_ALLOW_SUPERUSER 1
 ENV NPX_ALLOW_SUPERUSER 1
 RUN echo 'pm.max_children = 15' >> /usr/local/etc/php-fpm.d/zz-docker.conf && \
 echo 'pm.max_requests = 500' >> /usr/local/etc/php-fpm.d/zz-docker.conf
-RUN composer install && chmod -R 777 . && \
+RUN composer update && chmod -R 777 . && \
 npm install
 #RUN php artisan db:wipe --drop-types --force 
 #RUN php artisan migrate --force && php artisan db:seed --force
 
-RUN php artisan filament:assets && npm run build \
-npm run dev
+RUN php artisan filament:assets && npm run dev
 EXPOSE 8082
