@@ -28,5 +28,5 @@ npm install
 #RUN php artisan db:wipe --drop-types --force 
 #RUN php artisan migrate --force && php artisan db:seed --force
 
-RUN php artisan filament:optimize
+RUN php artisan optimize && php artisan filament:optimize
 EXPOSE 8081
