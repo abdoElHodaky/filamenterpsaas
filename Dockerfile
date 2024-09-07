@@ -24,6 +24,7 @@ ENV NPX_ALLOW_SUPERUSER 1
 RUN chmod 777 ./*
 RUN npm install && composer install
 RUN php artisan db:wipe --drop-types --force 
-RUN php artisan migrate:refresh --seed
+RUN php artisan migrate --force && php artisan db:seed --force
+
 RUN php artisan filament:assets && npm run build
 EXPOSE 81
