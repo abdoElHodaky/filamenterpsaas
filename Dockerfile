@@ -29,4 +29,4 @@ npm install
 #RUN php artisan migrate --force && php artisan db:seed --force
 
 RUN php artisan filament:assets
-EXPOSE 8082
+EXPOSE 8081
