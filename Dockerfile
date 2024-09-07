@@ -1,4 +1,4 @@
-FROM richarvey/nginx-php-fpm:2.1.2
+FROM richarvey/nginx-php-fpm:3.1.2
 RUN apk add -U --no-cache nghttp2-dev nodejs npm unzip tzdata
 COPY . /var/www/html
 
@@ -27,4 +27,5 @@ RUN php artisan migrate:install
 #RUN export APP_KEY=$( php artisan:key generate --show )
 #RUN php artisan migrate:fresh --force
 RUN php artisan db:seed --force
+RUN php artisan filament:assets && npm run build
 EXPOSE 81
