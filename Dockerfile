@@ -27,4 +27,4 @@ RUN npm install && composer install
 #RUN php artisan migrate --force && php artisan db:seed --force
 
 RUN php artisan filament:assets && npm run build
-EXPOSE 82
+EXPOSE 8082
