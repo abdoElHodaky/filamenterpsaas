@@ -29,5 +29,6 @@ php artisan storage:link
 #RUN php artisan db:wipe --drop-types --force 
 #RUN php artisan migrate --force && php artisan db:seed --force
 
-RUN php artisan optimize && php artisan filament:optimize
-EXPOSE 8081
+RUN php artisan optimize && php artisan filament:optimize && \
+npm run dev
+EXPOSE 8081 5173
