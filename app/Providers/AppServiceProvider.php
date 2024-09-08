@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         FilamentAsset::register([
             Js::make('TopNavigation', __DIR__ . '/../../resources/js/TopNavigation.js'),
         ]);
-        Authenticate::redirectUsing(fn() => Filament::getCurrentPanel()->route('auth.login'));
+        //Authenticate::redirectUsing(fn() => Filament::getCurrentPanel()->route('auth.login'));
     }
 
     /**
