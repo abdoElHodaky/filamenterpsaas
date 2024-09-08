@@ -24,7 +24,8 @@ ENV NPX_ALLOW_SUPERUSER 1
 RUN echo 'pm.max_children = 15' >> /usr/local/etc/php-fpm.d/zz-docker.conf && \
 echo 'pm.max_requests = 500' >> /usr/local/etc/php-fpm.d/zz-docker.conf
 RUN chmod -R 777 . && \
-composer install && npm install
+composer install && npm install && \
+npm run build
 #RUN php artisan db:wipe --drop-types --force 
 #RUN php artisan migrate --force && php artisan db:seed --force
 
