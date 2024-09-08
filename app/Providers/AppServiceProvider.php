@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        \URL::forceScheme('https');
+        #\URL::forceScheme('https');
         Notifications::alignment(Alignment::Center);
 
         $this->configurePanelSwitch();
@@ -42,6 +42,9 @@ class AppServiceProvider extends ServiceProvider
             Js::make('TopNavigation', __DIR__ . '/../../resources/js/TopNavigation.js'),
         ]);
         //Authenticate::redirectUsing(fn() => Filament::getCurrentPanel()->route('auth.login'));
+        if(config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
     }
 
     /**
