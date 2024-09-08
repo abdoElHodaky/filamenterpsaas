@@ -30,4 +30,4 @@ npm run build && php artisan storage:link
 #RUN php artisan migrate --force && php artisan db:seed --force
 
 RUN php artisan optimize && php artisan filament:optimize 
-EXPOSE 80 5173
+EXPOSE 81 5173
