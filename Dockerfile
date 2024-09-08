@@ -25,7 +25,8 @@ RUN echo 'pm.max_children = 15' >> /usr/local/etc/php-fpm.d/zz-docker.conf && \
 echo 'pm.max_requests = 500' >> /usr/local/etc/php-fpm.d/zz-docker.conf
 RUN composer update && chmod -R 777 . && \
 npm install && \
-php artisan storage:link
+php artisan vendor:publish --force --tag=livewire:assets && \
+php artisan storage:link 
 #RUN php artisan db:wipe --drop-types --force 
 #RUN php artisan migrate --force && php artisan db:seed --force
 
