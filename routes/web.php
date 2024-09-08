@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', function () {
+/*Route::get('/login', function () {
     $prevUrl = url()->previous();
 
     if (! $prevUrl) {
@@ -23,4 +23,4 @@ Route::get('/login', function () {
     }
 
     return redirect(route("filament.{$panelId}.auth.login"));
-})->name('login'); 
+})->name('login'); */
